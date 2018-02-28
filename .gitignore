@@ -35,6 +35,9 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+*.log
+.nvm
+/bots/node_modules/
 
 # BUCK
 buck-out/
@@ -51,3 +54,22 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+
+
+# Gradle
+/build/
+/RNTester/android/app/build/
+/RNTester/android/app/gradle/
+/RNTester/android/app/gradlew
+/RNTester/android/app/gradlew.bat
+/ReactAndroid/build/
+
+# Buck
+.buckd
+buck-out
+/ReactAndroid/src/main/jni/prebuilt/lib/armeabi-v7a/
+/ReactAndroid/src/main/jni/prebuilt/lib/x86/
+/ReactAndroid/src/main/gen
+
+# Watchman
+.watchmanconfig
