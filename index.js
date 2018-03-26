@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import App from './app/index';
+import Root from './src/root';
 
-AppRegistry.registerComponent('feelmusic', () => App);
+AppRegistry.registerComponent('feelmusic', () => Root);

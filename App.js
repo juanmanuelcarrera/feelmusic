@@ -4,6 +4,7 @@
  * @flow
  */
 
+ /*
 import React, { Component } from 'react';
 import {
   Platform,
@@ -56,3 +57,4 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+*/
