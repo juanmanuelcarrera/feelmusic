@@ -46,9 +46,17 @@ class SoundContainer extends Component {
   }
 }
 
-var sound1 = new Sound( require('./../samples/sample.mp3'), Sound.MAIN_BUNDLE);
+var sound1 = new Sound( require('./../samples/sample.mp3'), (error) => {
+  if (error) {
+    console.log('error occured', error)
+  }
+});
 
-var sound2 = new Sound( require('./../samples/frog.wav'), Sound.MAIN_BUNDLE);
+var sound2 = new Sound( require('./../samples/frog.wav'), (error) => {
+  if (error) {
+    console.log('error occured', error)
+  }
+});
 
 
 
