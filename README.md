@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/juanmanuelcarrera/feelmusic.svg?branch=master)](https://travis-ci.org/juanmanuelcarrera/feelmusic)
+
 # FeelMusic
 
 FeelMusic es una forma perfecta de adentrarte en el mundo de  la música y ser tú mismo, con el movimiento de tu cuerpo, el compositor de tus propias canciones. Esta app móvil es la mejor manera de divertirse mientras creamos nuestras melodías simplemente con un dispositivo móvil, pasión e imaginación. ¡Así que empieza a jugar y siente la música como nunca antes lo habías hecho!
