@@ -43,7 +43,7 @@ class CompassContainer extends Component {
 			this.setState({
 				zone: newZone
 			});
-		}, 1000);
+		}, 20);
 	}
 
 	render() {
