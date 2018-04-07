@@ -7,8 +7,6 @@ import FeelMusicApp from './containers/feelmusic_app'
 const store = configureStore();
 // store.subscribe(() => console.log(store.getState()))
 
-
-
 export default class Root extends React.Component {
     render() {
         return (
