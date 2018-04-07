@@ -44,6 +44,10 @@ class WelcomeContainer extends Component {
                     <Icon name='compass' />
                     <Text>Compass</Text>
                 </Button>
+                <Button onPress={() => Actions.prototype_container() } style={styles.button} full={true}>
+                    <Icon name='compass' />
+                    <Text>Prototype</Text>
+                </Button>
             </Content>
         </Container>
     );

@@ -22,7 +22,7 @@ const gyroscopeObservable = new Gyroscope({
 
 
 class SensorContainer extends Component {
- 
+
 
 
   constructor(props) {
@@ -46,17 +46,17 @@ class SensorContainer extends Component {
 
 componentWillMount() {
     accelerationObservable
-      .subscribe((acceleration) => { 
-this.setState({acceleration,}); 
+      .subscribe((acceleration) => {
+this.setState({acceleration,});
 if (acceleration.z > 7)
 	//reproducir sonido
 	this.setState({cont: 'ok'});
-if(acceleration.y > 7)	
-	this.setState({cont: 'no'});	
+if(acceleration.y > 7)
+	this.setState({cont: 'no'});
 });
-	
 
-	
+
+
 
     gyroscopeObservable
       .subscribe(gyroscope => this.setState({
@@ -92,7 +92,7 @@ const {
             <Content padder contentContainerStyle={{}}>
                 <Button onPress={() => Actions.pop() }>
                     <Icon name='arrow-back' />
-                    <Text>Backo</Text>
+                    <Text>Back</Text>
                 </Button>
 <Text>
 {acceleration.x + '/' + acceleration.y + '/' + acceleration.z + '  cont = ' + cont}

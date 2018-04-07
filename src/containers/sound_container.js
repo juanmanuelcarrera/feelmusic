@@ -28,7 +28,7 @@ class SoundContainer extends Component {
                 </Body>
             </Header>
             <Content padder contentContainerStyle={{}}>
-                <Button onPress={() => Actions.pop() }>
+                <Button onPress={() => {sound1.stop(), sound2.stop(); Actions.pop()} }>
                     <Icon name='arrow-back' />
                     <Text>Back</Text>
                 </Button>
@@ -46,13 +46,13 @@ class SoundContainer extends Component {
   }
 }
 
-var sound1 = new Sound( require('./../samples/sample.mp3'), (error) => {
+var sound1 = new Sound( require('./../samples/sample1.mp3'), (error) => {
   if (error) {
     console.log('error occured', error)
   }
 });
 
-var sound2 = new Sound( require('./../samples/frog.wav'), (error) => {
+var sound2 = new Sound( require('./../samples/sample2.wav'), (error) => {
   if (error) {
     console.log('error occured', error)
   }

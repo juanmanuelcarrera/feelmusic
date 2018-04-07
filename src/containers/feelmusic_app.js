@@ -14,6 +14,7 @@ import WelcomeContainer from './welcome_container';
 import CompassContainer from './compass_container';
 import SoundContainer from './sound_container';
 import SensorContainer from './sensor_container';
+import PrototypeContainer from './prototype_container';
 
 class FeelMusicApp extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class FeelMusicApp extends Component {
                     <Scene key="compass_container" component={CompassContainer}  hideNavBar title="Compass"/>
                     <Scene key="sound_container" component={SoundContainer}  hideNavBar title="Sound"/>
                     <Scene key="sensor_container" component={SensorContainer}  hideNavBar title="Sensor"/>
+                    <Scene key="prototype_container" component={PrototypeContainer}  hideNavBar title="Prototype"/>
                 </Stack>
             </Router>
         </Root>

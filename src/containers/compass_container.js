@@ -25,7 +25,7 @@ class CompassContainer extends Component {
 
 	componentDidMount() {
 		const degree_update_rate = 3;
-		
+
 		/*
 		RNSimpleCompass.start(degree_update_rate, (degree) => {
 			this.setState({
@@ -50,7 +50,7 @@ class CompassContainer extends Component {
 			});
 		}, 20);
 		*/
-		
+
 		setInterval(() => {
 			RNSimpleCompass.start(degree_update_rate, (degree) => {
 				var newZone;
