@@ -25,32 +25,6 @@ class CompassContainer extends Component {
 
 	componentDidMount() {
 		const degree_update_rate = 3;
-
-		/*
-		RNSimpleCompass.start(degree_update_rate, (degree) => {
-			this.setState({
-				currentDegree: degree
-			});
-			//RNSimpleCompass.stop();
-		});
-		setInterval(() => {
-			var currentDegree = this.state.currentDegree;
-			var newZone = '';
-			if (currentDegree >= 0 && currentDegree < 90) {
-				newZone = 'One';
-			} else if (currentDegree >= 90 && currentDegree < 180) {
-				newZone = 'Two';
-			} else if (currentDegree >= 180 && currentDegree < 270) {
-				newZone = 'Three';
-			} else {
-				newZone = 'Four';
-			}
-			this.setState({
-				zone: newZone
-			});
-		}, 20);
-		*/
-
 		setInterval(() => {
 			RNSimpleCompass.start(degree_update_rate, (degree) => {
 				var newZone;
@@ -81,7 +55,7 @@ class CompassContainer extends Component {
 					</Body>
 				</Header>
 				<Content padder contentContainerStyle={{}}>
-				<Button onPress={() => Actions.pop()}>
+					<Button onPress={() => Actions.pop()}>
 						<Icon name="arrow-back" />
 						<Text>Back</Text>
 					</Button>
@@ -102,12 +76,22 @@ class CompassContainer extends Component {
 							<View
 								style={[
 									styles.circle,
-									{ backgroundColor: 'green', borderTopLeftRadius: circleSize, opacity: this.state.zone == 1 ? 1 : 0.3}]}
+									{
+										backgroundColor: 'green',
+										borderTopLeftRadius: circleSize,
+										opacity: this.state.zone == 1 ? 1 : 0.3
+									}
+								]}
 							/>
 							<View
 								style={[
 									styles.circle,
-									{ backgroundColor: 'red', borderTopRightRadius: circleSize, opacity: this.state.zone == 2 ? 1 : 0.3}]}
+									{
+										backgroundColor: 'red',
+										borderTopRightRadius: circleSize,
+										opacity: this.state.zone == 2 ? 1 : 0.3
+									}
+								]}
 							/>
 						</View>
 						<View
@@ -119,12 +103,22 @@ class CompassContainer extends Component {
 							<View
 								style={[
 									styles.circle,
-									{ backgroundColor: 'blue', borderBottomLeftRadius: circleSize, opacity: this.state.zone == 3 ? 1 : 0.3}]}
+									{
+										backgroundColor: 'blue',
+										borderBottomLeftRadius: circleSize,
+										opacity: this.state.zone == 4 ? 1 : 0.3
+									}
+								]}
 							/>
 							<View
 								style={[
 									styles.circle,
-									{ backgroundColor: 'yellow', borderBottomRightRadius: circleSize, opacity: this.state.zone == 4 ? 1 : 0.3}]}
+									{
+										backgroundColor: 'yellow',
+										borderBottomRightRadius: circleSize,
+										opacity: this.state.zone == 3 ? 1 : 0.3
+									}
+								]}
 							/>
 						</View>
 					</View>
@@ -140,7 +134,7 @@ const styles = StyleSheet.create({
 	circle: {
 		width: circleSize,
 		height: circleSize
-	  }
+	}
 });
 
 function mapStateToProps(state) {
