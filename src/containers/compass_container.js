@@ -21,29 +21,24 @@ class CompassContainer extends Component {
 			zone3Color: 'blue',
 			zone4Color: 'yellow'
 		};
-	}
 
-	componentDidMount() {
-		const degree_update_rate = 3;
-		setInterval(() => {
-			RNSimpleCompass.start(degree_update_rate, (degree) => {
-				var newZone;
-				if (degree >= 0 && degree < 90) {
-					newZone = 1;
-				} else if (degree >= 90 && degree < 180) {
-					newZone = 2;
-				} else if (degree >= 180 && degree < 270) {
-					newZone = 3;
-				} else {
-					newZone = 4;
-				}
-				this.setState({
-					currentDegree: degree,
-					zone: newZone
-				});
-				RNSimpleCompass.stop();
+		var newZone;
+
+		RNSimpleCompass.start(10, (degree) => {
+			if (degree >= 0 && degree < 90) {
+				newZone = 1;
+			} else if (degree >= 90 && degree < 180) {
+				newZone = 2;
+			} else if (degree >= 180 && degree < 270) {
+				newZone = 3;
+			} else {
+				newZone = 4;
+			}
+			this.setState({
+				currentDegree: degree,
+				zone: newZone
 			});
-		}, 150);
+		});
 	}
 
 	render() {
