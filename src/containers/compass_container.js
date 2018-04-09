@@ -24,17 +24,7 @@ const styles = StyleSheet.create({
 
 class CompassContainer extends Component {
 	constructor(props) {
-		super(props);
-		/*this.state = {
-			currentDegree: 0,
-			zone: 1,
-			zone1Color: 'green',
-			zone2Color: 'red',
-			zone3Color: 'blue',
-			zone4Color: 'yellow'
-		};*/
-
-		
+		super(props);		
 	}
 
 	componentWillMount() {
