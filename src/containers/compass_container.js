@@ -4,44 +4,62 @@ import React, { Component } from 'react';
 import { Container, Header, Content, Button, Icon, Text, Body, Title, View } from 'native-base';
 
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
 
 import RNSimpleCompass from 'react-native-simple-compass';
 
 import { StyleSheet, Dimensions } from 'react-native';
+import { setZone, setDegrees } from '../actions/actions';
+
+import { Actions } from 'react-native-router-flux';
+
+
+const circleSize = Dimensions.get('window').width * 0.4;
+
+const styles = StyleSheet.create({
+	circle: {
+		width: circleSize,
+		height: circleSize
+	}
+});
 
 class CompassContainer extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
+		/*this.state = {
 			currentDegree: 0,
 			zone: 1,
 			zone1Color: 'green',
 			zone2Color: 'red',
 			zone3Color: 'blue',
 			zone4Color: 'yellow'
-		};
+		};*/
 
-		var newZone;
+		
+	}
 
+	componentWillMount() {
 		RNSimpleCompass.start(10, (degree) => {
 			if (degree >= 0 && degree < 90) {
-				newZone = 1;
+				this.props.setZone(1);
 			} else if (degree >= 90 && degree < 180) {
-				newZone = 2;
+				this.props.setZone(2);
 			} else if (degree >= 180 && degree < 270) {
-				newZone = 3;
+				this.props.setZone(3);
 			} else {
-				newZone = 4;
+				this.props.setZone(4);
 			}
-			this.setState({
-				currentDegree: degree,
-				zone: newZone
-			});
+			this.props.setDegrees(degree);
 		});
 	}
 
+
+	componentWillUnmount() {
+		RNSimpleCompass.stop();
+	}
+
 	render() {
+		const { zone, degrees } = this.props;
+
 		return (
 			<Container>
 				<Header>
@@ -54,8 +72,8 @@ class CompassContainer extends Component {
 						<Icon name="arrow-back" />
 						<Text>Back</Text>
 					</Button>
-					<Text> Degrees: {this.state.currentDegree} </Text>
-					<Text> Zone: {this.state.zone} </Text>
+					<Text> Degrees: {degrees} </Text>
+					<Text> Zone: {zone} </Text>
 					<View
 						style={{
 							justifyContent: 'center',
@@ -74,7 +92,7 @@ class CompassContainer extends Component {
 									{
 										backgroundColor: 'green',
 										borderTopLeftRadius: circleSize,
-										opacity: this.state.zone == 1 ? 1 : 0.3
+										opacity: zone == 1 ? 1 : 0.3
 									}
 								]}
 							/>
@@ -84,7 +102,7 @@ class CompassContainer extends Component {
 									{
 										backgroundColor: 'red',
 										borderTopRightRadius: circleSize,
-										opacity: this.state.zone == 2 ? 1 : 0.3
+										opacity: zone == 2 ? 1 : 0.3
 									}
 								]}
 							/>
@@ -101,7 +119,7 @@ class CompassContainer extends Component {
 									{
 										backgroundColor: 'blue',
 										borderBottomLeftRadius: circleSize,
-										opacity: this.state.zone == 4 ? 1 : 0.3
+										opacity: zone == 4 ? 1 : 0.3
 									}
 								]}
 							/>
@@ -111,7 +129,7 @@ class CompassContainer extends Component {
 									{
 										backgroundColor: 'yellow',
 										borderBottomRightRadius: circleSize,
-										opacity: this.state.zone == 3 ? 1 : 0.3
+										opacity: zone == 3 ? 1 : 0.3
 									}
 								]}
 							/>
@@ -123,21 +141,24 @@ class CompassContainer extends Component {
 	}
 }
 
-const circleSize = Dimensions.get('window').width * 0.4;
+const mapStateToProps = state => {
 
-const styles = StyleSheet.create({
-	circle: {
-		width: circleSize,
-		height: circleSize
+
+  	return Object.assign({}, state, {
+		zone : state.compass.zone,
+		degrees : state.compass.degrees
+  	});
+  }
+  
+  const mapDispatchToProps = dispatch => {  
+	return {
+		setZone: zone => {
+			dispatch(setZone(zone))
+		},
+		setDegrees: degrees => {
+			dispatch(setDegrees(degrees));
+		}
 	}
-});
-
-function mapStateToProps(state) {
-	return {};
-}
-
-function mapDispatchToProps(dispatch) {
-	return {};
-}
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompassContainer);

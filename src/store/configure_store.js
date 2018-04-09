@@ -1,15 +1,9 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
-// import api from '../middleware/api'
-
-import * as reducers from '../reducers';
-
-const reducer = combineReducers(reducers);
+import { createStore } from 'redux'
+import rootReducer from '../reducers'
 
 const configureStore = preloadedState => createStore(
-  reducer,
+  rootReducer,
   preloadedState,
-  applyMiddleware(thunk)
 )
-//applyMiddleware(thunk, api)
+
 export default configureStore

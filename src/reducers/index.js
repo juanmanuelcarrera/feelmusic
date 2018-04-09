@@ -1,5 +1,9 @@
-import welcome_reducer from './welcome_reducer';
+import { combineReducers } from 'redux'
 
-export {
-  welcome_reducer
-};
+import compass_reducer from './compass_reducer';
+import sound_reducer from './sound_reducer';
+
+export default combineReducers({
+  compass: compass_reducer,
+  sound: sound_reducer
+})
