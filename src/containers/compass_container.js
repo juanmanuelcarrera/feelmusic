@@ -131,16 +131,12 @@ class CompassContainer extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-
-
-  	return Object.assign({}, state, {
-		zone : state.compass.zone,
-		degrees : state.compass.degrees
-  	});
-  }
+const mapStateToProps = state => ({
+	zone: state.compass.zone,
+	degrees: state.compass.degrees
+  })
   
-  const mapDispatchToProps = dispatch => {  
+const mapDispatchToProps = dispatch => {  
 	return {
 		setZone: zone => {
 			dispatch(setZone(zone))
@@ -149,6 +145,6 @@ const mapStateToProps = state => {
 			dispatch(setDegrees(degrees));
 		}
 	}
-  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompassContainer);
