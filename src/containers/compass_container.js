@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 	}
 });
 
+// Super comentario
 class CompassContainer extends Component {
 	constructor(props) {
 		super(props);		
