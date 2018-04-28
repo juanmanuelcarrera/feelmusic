@@ -6,7 +6,7 @@ import { Container, Header, Content, Button, Icon, Text, Body, Title, View } fro
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 import RNSimpleCompass from 'react-native-simple-compass';
 import RNSensors from 'react-native-sensors';
@@ -59,10 +59,26 @@ class PrototypeContainer extends Component {
 	componentWillMount() {
 		accelerationObservable.subscribe((acceleration) => {
 			this.setState({ acceleration });
-			if (acceleration.z > 7)
+
+			if (Platform.OS === "ios") {
+				if (acceleration.z < -0.7 )
+					//reproducir sonido
+					this.setState({ cont: 'ok' });
+				if (acceleration.y < -0.7) 
+					this.setState({ cont: 'no' });
+			}
+			else {
+				if (acceleration.z > 7)
+				//reproducir sonido
+					this.setState({ cont: 'ok' });
+				if (acceleration.y > 7) 
+					this.setState({ cont: 'no' });
+			}
+			/*if (acceleration.z > (Platform.OS == "ios" ? 0.7 : 0))
 				//reproducir sonido
 				this.setState({ cont: 'ok' });
-			if (acceleration.y > 7) this.setState({ cont: 'no' });
+			if (acceleration.y > (Platform.OS == "ios" ? 0.7 : 0)) 
+				this.setState({ cont: 'no' });*/
 		});
 		gyroscopeObservable.subscribe((gyroscope) =>
 			this.setState({
