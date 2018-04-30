@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/juanmanuelcarrera/feelmusic.svg?branch=master)](https://travis-ci.org/juanmanuelcarrera/feelmusic)
+[![MIT License][license-badge]][license]
 
 # FeelMusic
 
