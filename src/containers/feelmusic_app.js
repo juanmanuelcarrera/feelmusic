@@ -1,47 +1,63 @@
 'use strict';
 
-import { Root } from "native-base";
+import React, { Component } from 'react';
 
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
+import { StyleSheet } from 'react-native';
 
-import {View, Text} from 'react-native';
-import { connect } from 'react-redux';
+import { ViroARScene, ViroText, ViroConstants, ViroBox, ViroMaterials } from 'react-viro';
 
-import {Scene, Router, Stack} from 'react-native-router-flux';
+class HelloWorldSceneAR extends Component {
+	constructor() {
+		super();
 
-import WelcomeContainer from './welcome_container';
-import CompassContainer from './compass_container';
-import SoundContainer from './sound_container';
-import SensorContainer from './sensor_container';
-import PrototypeContainer from './prototype_container';
+		// Set initial state here
+		this.state = {
+			text: 'Initializing AR...'
+		};
 
-class FeelMusicApp extends Component {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-    
-  }
+		// bind 'this' to functions
+		this._onInitialized = this._onInitialized.bind(this);
+	}
 
-  render() {
-    const { state, actions } = this.props;
+	render() {
+		return (
+			<ViroARScene onTrackingUpdated={this._onInitialized}>
+				<ViroText
+					text={this.state.text}
+					scale={[ 0.5, 0.5, 0.5 ]}
+					position={[ 0, 0, -1 ]}
+					style={styles.helloWorldTextStyle}
+				/>
+				{/* <ViroBox position={[ 0, -0.5, -1 ]} scale={[ 0.3, 0.3, 0.1 ]} materials={[ 'grid' ]} /> */}
+			</ViroARScene>
+		);
+	}
 
-    return (
-        <Root>
-            <Router>
-                <Stack key="root">
-                    <Scene key="welcome_container" initial={true} component={WelcomeContainer} hideNavBar title="Welcome"/>
-                    <Scene key="compass_container" component={CompassContainer}  hideNavBar title="Compass"/>
-                    <Scene key="sound_container" component={SoundContainer}  hideNavBar title="Sound"/>
-                    <Scene key="sensor_container" component={SensorContainer}  hideNavBar title="Sensor"/>
-                    <Scene key="prototype_container" component={PrototypeContainer}  hideNavBar title="Prototype"/>
-                </Stack>
-            </Router>
-        </Root>
-
-    )
-  }
+	_onInitialized(state, reason) {
+		if (state == ViroConstants.TRACKING_NORMAL) {
+			this.setState({
+				text: 'Hello World!'
+			});
+		} else if (state == ViroConstants.TRACKING_NONE) {
+			// Handle loss of tracking
+		}
+	}
 }
 
-export default FeelMusicApp;
+var styles = StyleSheet.create({
+	helloWorldTextStyle: {
+		fontFamily: 'Arial',
+		fontSize: 30,
+		color: '#ffffff',
+		textAlignVertical: 'center',
+		textAlign: 'center'
+	}
+});
+
+// ViroMaterials.createMaterials({
+// 	grid: {
+// 		diffuseTexture: require('./../samples/grid_bg.jpg')
+// 	}
+// });
+
+export default HelloWorldSceneAR;

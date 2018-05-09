@@ -7,10 +7,6 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.reactlibrary.RNSimpleCompassPackage;
 import com.sensors.RNSensorsPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.zmxv.RNSound.RNSoundPackage;
-import com.reactlibrary.RNSimpleCompassPackage;
-import com.sensors.RNSensorsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -31,10 +27,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new VectorIconsPackage(),
-            new RNSoundPackage(),
-            new RNSimpleCompassPackage(),
-            new RNSensorsPackage(),
             new VectorIconsPackage(),
             new RNSoundPackage(),
             new RNSimpleCompassPackage(),
