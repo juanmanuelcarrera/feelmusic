@@ -39,7 +39,21 @@ class PrototypeContainer extends Component {
 
 		var newZone;
 
-
+		RNSimpleCompass.start(10, (degree) => {
+			if (degree >= 0 && degree < 90) {
+				newZone = 1;
+			} else if (degree >= 90 && degree < 180) {
+				newZone = 2;
+			} else if (degree >= 180 && degree < 270) {
+				newZone = 3;
+			} else {
+				newZone = 4;
+			}
+			this.setState({
+				currentDegree: degree,
+				zone: newZone
+			});
+		});
 	}
 
 	componentWillMount() {
@@ -73,7 +87,12 @@ class PrototypeContainer extends Component {
 		);
 	}
 
-
+	//funciones en ec6
+	detect() {
+		(acceleration) => {
+			if (acceleration.z > 7) cont = ok;
+		};
+	}
 
 	componentWillUnmount() {
 		accelerationObservable.stop();
