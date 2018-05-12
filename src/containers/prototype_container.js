@@ -73,12 +73,7 @@ class PrototypeContainer extends Component {
 		);
 	}
 
-	//funciones en ec6
-	detect() {
-		(acceleration) => {
-			if (acceleration.z > 7) cont = ok;
-		};
-	}
+
 
 	componentWillUnmount() {
 		accelerationObservable.stop();
