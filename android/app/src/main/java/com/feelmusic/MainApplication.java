@@ -34,10 +34,6 @@ public class MainApplication extends Application implements ReactApplication {
             new VectorIconsPackage(),
             new RNSoundPackage(),
             new RNSimpleCompassPackage(),
-            new RNSensorsPackage(),
-            new VectorIconsPackage(),
-            new RNSoundPackage(),
-            new RNSimpleCompassPackage(),
             new RNSensorsPackage()
       );
     }
