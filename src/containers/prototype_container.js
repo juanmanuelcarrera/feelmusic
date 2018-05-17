@@ -69,14 +69,26 @@ class PrototypeContainer extends Component {
 				if (acceleration.z < -0.7 )
 					//reproducir sonido
 					this.setState({ cont: 'ok' });
-				if (acceleration.z > -0.7)
+				if (acceleration.z > -0.7 && (acceleration.x > -0.2 && acceleration.x < 0.2))
 					this.setState({ cont: 'no' });
-				if(acceleration.x < -0.7){
-					this.setState({ bucle: 1 });
-				}
-				if(acceleration.x > 0.7){
-					this.setState({ sonido: 1 });
-				}
+					if(acceleration.x < -0.7){
+						this.setState({ cont: 'ok' });
+						if(this.state.bucle == 0)
+							this.state.bucle = 1;
+						else if(this.state.bucle == 1){
+								this.state.bucle = 2;
+						}
+					}
+					else if(acceleration.x > 0.7){
+						this.setState({ cont: 'ok' });
+						if(this.state.sonido == 0)
+							this.state.sonido = 1;
+					}
+					else if(acceleration.x < 0.7){
+						//this.setState({ cont: 'no' });
+						if(this.state.sonido == 1)
+							this.state.sonido = 0;
+					}
 			}
 			else {
 				if (acceleration.z > 7)
