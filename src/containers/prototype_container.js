@@ -21,6 +21,7 @@ class PrototypeContainer extends Component {
 			cuadricula: 0,
 			contador: 0,
 			sonido: 0,
+			volume: 0,
 			out: 0,
 			times: 0,
 			acceleration: {
@@ -144,6 +145,8 @@ class PrototypeContainer extends Component {
 	detect() {
 		(acceleration) => {
 			if (acceleration.z > 7) cont = ok;
+			if (acceleration.x > 7) bucle = 1;
+			if (acceleration.x < -7) volume = 1;
 		};
 	}
 
@@ -165,6 +168,7 @@ class PrototypeContainer extends Component {
 	}
 
 	render() {
+
 		const { acceleration, gyroscope, cont } = this.state;;
 		if(this.state.out == 0){
 			if(this.state.cuadricula == 0){
@@ -583,10 +587,7 @@ var sound4 = new Sound(require('./../samples/sample4.wav'), (error) => {
 });
 
 var sound5 = new Sound(require('./../samples/sample1.mp3'), (error) => {
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound6 = new Sound(require('./../samples/sample2.wav'), (error) => {
 	if (error) {
@@ -595,64 +596,34 @@ var sound6 = new Sound(require('./../samples/sample2.wav'), (error) => {
 });
 
 var sound7 = new Sound(require('./../samples/sample3.wav'), (error) => {
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound8 = new Sound(require('./../samples/sample4.wav'), (error) => {
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound9 = new Sound(require('./../samples/sample5.wav'), (error) => {
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound10 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample6
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound11 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample7
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound12 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample8
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound13 = new Sound(require('./../samples/sample5.wav'), (error) => {
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound14 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample6
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound15 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample7
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 var sound16 = new Sound(require('./../samples/sample5.wav'), (error) => {//aqui va el sample8
-	if (error) {
-		console.log('error occured', error);
-	}
-});
+
 
 const { Accelerometer, Gyroscope } = RNSensors;
 const accelerationObservable = new Accelerometer({

@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.org/juanmanuelcarrera/feelmusic.svg?branch=master)](https://travis-ci.org/juanmanuelcarrera/feelmusic)
+[![MIT License][license-badge]][license]
 
 # FeelMusic
 
 FeelMusic es una forma perfecta de adentrarte en el mundo de  la música y ser tú mismo, con el movimiento de tu cuerpo, el compositor de tus propias canciones. Esta app móvil es la mejor manera de divertirse mientras creamos nuestras melodías simplemente con un dispositivo móvil, pasión e imaginación. ¡Así que empieza a jugar y siente la música como nunca antes lo habías hecho!
 
 ## Motivación
-
 ¿A quién no le gusta la música?  A todo el mundo, en mayor o menor medida, ya sea un género u otro: _jazz, pop, rap, hip hop, rock, soul…_; nos gusta la música. Es más, aunque tengamos ciertas preferencias, en lo que a gustos musicales se refiere, es muy probable que en más de una ocasión nos hayamos sentido atraídos por ritmos desconocidos, que nunca antes habíamos escuchado.
 
 A quién no le ha pasado alguna vez, que con escuchar un par de notas musicales, haya sido capaz de recordar situaciones pasadas olvidadas. Situaciones capaces de sacar una sonrisa o evocar un recuerdo tan triste, que te remueva por dentro y te acongoje. Ambos recuerdos son muy diferentes, pero tienen algo en común, son capaces de emocionarte. La música, es capaz de jugar con tus emociones. Este es el poder de la música.
