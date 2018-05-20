@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Container, Header, Content, Button, Icon, Text, Body, Title, View } from 'native-base';
+import { Container, Header, Content, Button, Icon, Text, Body, Title, View, Footer, FooterTab, Tabs } from 'native-base';
 
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -727,6 +727,36 @@ class PrototypeContainer extends Component {
 						</View>
 					</View>
 				</Content>
+				<Tabs initialPage={1} ref={(tabView) => { this.tabView = tabView }} tabBarUnderlineStyle={{opacity: 0}}>
+					<Tab heading="Tab1">
+						<Tab1 />
+					</Tab>
+					<Tab heading="Tab2">
+						<Tab2 />
+					</Tab>
+					<Tab heading="Tab3">
+						<Tab3 />
+					</Tab>
+					<Tab heading="Tab4">
+						<Tab4 />
+					</Tab>
+				</Tabs>
+				<Footer>
+					<FooterTab>
+						<Button>
+						<Text>Apps</Text>
+						</Button>
+						<Button>
+						<Text>Camera</Text>
+						</Button>
+						<Button active>
+						<Text>Navigate</Text>
+						</Button>
+						<Button>
+						<Text>Contact</Text>
+						</Button>
+					</FooterTab>
+				</Footer>
 			</Container>
 		);
 	}
