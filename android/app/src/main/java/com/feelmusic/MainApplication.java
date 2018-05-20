@@ -1,8 +1,7 @@
 package com.feelmusic;
-
 import android.app.Application;
-
 import com.facebook.react.ReactApplication;
+import com.rnim.rn.audio.ReactNativeAudioPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.reactlibrary.RNSimpleCompassPackage;
@@ -11,7 +10,6 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,6 +25,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeAudioPackage(),
             new VectorIconsPackage(),
             new RNSoundPackage(),
             new RNSimpleCompassPackage(),
