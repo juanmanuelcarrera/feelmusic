@@ -423,6 +423,29 @@ class PrototypeContainer extends Component {
         });
       }
     });
+    
+    sound1.stop();
+    sound2.stop();
+    sound3.stop();
+    sound4.stop();
+    sound5.stop();
+    sound6.stop();
+    sound7.stop();
+    sound8.stop();
+    sound9.stop();
+    sound10.stop();
+    sound11.stop();
+    sound12.stop();
+    sound13.stop();
+    sound14.stop();
+    sound15.stop();
+    sound16.stop();
+    
+    if (soundR1)
+      soundR1.stop();
+    
+    if (soundR2)
+      soundR2.stop();
   }
 
   /*
@@ -459,27 +482,30 @@ class PrototypeContainer extends Component {
         if (this.state.cont == "ok") {
           if (this.state.zone == 1) {
             if (this.state.bucle == 2) {
-              sound1.stop();
+              this.state.useSoundR1 ? soundR1.stop() : sound1.stop();
               this.state.bucle = 0;
             } else if (this.state.bucle == 0) {
               if (this.state.sonido == 1) {
-                sound1.play();
+                this.state.useSoundR1 ? soundR1.play() : sound1.play();
               }
             } else if (this.state.bucle == 1) {
-              sound1.setNumberOfLoops(-1);
-              sound1.play();
+              this.state.useSoundR1 ? soundR1.setNumberOfLoops(-1) : sound1.setNumberOfLoops(-1);
+              this.state.useSoundR1 ? soundR1.play() : sound1.play();
             }
           } else if (this.state.zone == 2) {
             if (this.state.bucle == 2) {
-              sound2.stop();
+              this.state.useSoundR2 ? soundR2.stop() : sound2.stop();
               this.state.bucle = 0;
             } else if (this.state.bucle == 0) {
               if (this.state.sonido == 1) {
-                sound2.play();
+                this.state.useSoundR2 ? soundR2.play() : sound2.play();
+                //sound2.play();
               }
             } else if (this.state.bucle == 1) {
-              sound2.setNumberOfLoops(-1);
-              sound2.play();
+              his.state.useSoundR2 ? soundR2.setNumberOfLoops(-1) : sound2.setNumberOfLoops(-1);
+              this.state.useSoundR2 ? soundR2.play() : sound2.play();
+              //sound2.setNumberOfLoops(-1);
+              //sound2.play();
             }
           } else if (this.state.zone == 3) {
             if (this.state.bucle == 2) {
@@ -693,21 +719,24 @@ class PrototypeContainer extends Component {
 
     return (
       <Container>
-        <Header hasTabs>
-          <Body>
-            <Title>FeelMusic App - Compass</Title>
-          </Body>
-        </Header>
+        
 
         <Content contentContainerStyle={{}}>
+          <Header>
+            <Body>
+              <Title>FeelMusic App</Title>
+            </Body>
+          </Header>
           <Tabs
             initialPage={0}
             ref={tabView => {
               this.tabView = tabView;
             }}
             tabBarUnderlineStyle={{ opacity: 0 }}
+            tabBarPosition={"bottom"}
+            style={{flex: 1}}
           >
-            <Tab heading={<TabHeading />}>
+            <Tab heading={<TabHeading />} style={{padding: 10}}>
               <View style={styles.container}>
                 <Button
                   onPress={() => {
@@ -995,7 +1024,7 @@ class PrototypeContainer extends Component {
                 </Grid>
               </View>
             </Tab>
-            <Tab heading={<TabHeading />}>
+            <Tab heading={<TabHeading />} style={{padding: 10}}>
               <View style={styles.container}>
                 <Button
                   onPress={() => {
@@ -1026,7 +1055,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "green",
                             borderTopLeftRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 1
+                              this.state.cuadricula == 1 && this.state.zone == 1
                                 ? 1
                                 : 0.3
                           }
@@ -1039,7 +1068,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "red",
                             borderTopRightRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 2
+                              this.state.cuadricula == 1 && this.state.zone == 2
                                 ? 1
                                 : 0.3
                           }
@@ -1059,7 +1088,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "blue",
                             borderBottomLeftRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 4
+                              this.state.cuadricula == 1 && this.state.zone == 4
                                 ? 1
                                 : 0.3
                           }
@@ -1072,7 +1101,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "yellow",
                             borderBottomRightRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 3
+                              this.state.cuadricula == 1 && this.state.zone == 3
                                 ? 1
                                 : 0.3
                           }
@@ -1283,7 +1312,7 @@ class PrototypeContainer extends Component {
                 </Grid>
               </View>
             </Tab>
-            <Tab heading={<TabHeading />}>
+            <Tab heading={<TabHeading />} style={{padding: 10}}>
               <View style={styles.container}>
                 <Button
                   onPress={() => {
@@ -1314,7 +1343,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "green",
                             borderTopLeftRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 1
+                              this.state.cuadricula == 2 && this.state.zone == 1
                                 ? 1
                                 : 0.3
                           }
@@ -1327,7 +1356,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "red",
                             borderTopRightRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 2
+                              this.state.cuadricula == 2 && this.state.zone == 2
                                 ? 1
                                 : 0.3
                           }
@@ -1347,7 +1376,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "blue",
                             borderBottomLeftRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 4
+                              this.state.cuadricula == 2 && this.state.zone == 4
                                 ? 1
                                 : 0.3
                           }
@@ -1360,7 +1389,7 @@ class PrototypeContainer extends Component {
                             backgroundColor: "yellow",
                             borderBottomRightRadius: circleSize,
                             opacity:
-                              this.state.cuadricula == 0 && this.state.zone == 3
+                              this.state.cuadricula == 2 && this.state.zone == 3
                                 ? 1
                                 : 0.3
                           }
@@ -1571,7 +1600,7 @@ class PrototypeContainer extends Component {
                 </Grid>
               </View>
             </Tab>
-            <Tab heading={<TabHeading />}>
+            <Tab heading={<TabHeading />} style={{padding: 10}}>
               <View
                 style={{
                   justifyContent: "center",
@@ -1645,6 +1674,88 @@ class PrototypeContainer extends Component {
                   />
                 </View>
               </View>
+              <View style={{ marginTop: 20 }}>
+                    <Grid
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
+                      <Col>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center"
+                          }}
+                        >
+                          {this._renderButton(
+                            "RECORD",
+                            () => {
+                              this._record();
+                            },
+                            this.state.recording
+                          )}
+                        </Row>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: 20
+                          }}
+                        >
+                          {this._renderButton("PLAY", () => {
+                            this._play();
+                          })}
+                        </Row>
+                      </Col>
+                      <Col>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center"
+                          }}
+                        >
+                          {this._renderButton("STOP", () => {
+                            this._stop();
+                          })}
+                        </Row>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: 20
+                          }}
+                        >
+                          {this._renderButton("USE R1", () => {
+                            this._useR1();
+                          })}
+                        </Row>
+                      </Col>
+                      <Col>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center"
+                          }}
+                        >
+                          {this._renderButton("USE R2", () => {
+                            this._useR2();
+                          })}
+                        </Row>
+                        <Row
+                          style={{
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: 20
+                          }}
+                        >
+                          {this._renderPauseButton(() => {
+                            this.state.paused ? this._resume() : this._pause();
+                          })}
+                        </Row>
+                      </Col>
+                    </Grid>
+                  </View>
             </Tab>
           </Tabs>
         </Content>
@@ -1724,7 +1835,7 @@ var styles = StyleSheet.create({
   }
 });
 
-const circleSize = Dimensions.get("window").width * 0.4;
+const circleSize = Dimensions.get("window").width * 0.35;
 
 const styles = StyleSheet.create({
   circle: {
