@@ -423,7 +423,7 @@ class PrototypeContainer extends Component {
         });
       }
     });
-    
+
     sound1.stop();
     sound2.stop();
     sound3.stop();
@@ -440,12 +440,10 @@ class PrototypeContainer extends Component {
     sound14.stop();
     sound15.stop();
     sound16.stop();
-    
-    if (soundR1)
-      soundR1.stop();
-    
-    if (soundR2)
-      soundR2.stop();
+
+    if (soundR1) soundR1.stop();
+
+    if (soundR2) soundR2.stop();
   }
 
   /*
@@ -489,7 +487,9 @@ class PrototypeContainer extends Component {
                 this.state.useSoundR1 ? soundR1.play() : sound1.play();
               }
             } else if (this.state.bucle == 1) {
-              this.state.useSoundR1 ? soundR1.setNumberOfLoops(-1) : sound1.setNumberOfLoops(-1);
+              this.state.useSoundR1
+                ? soundR1.setNumberOfLoops(-1)
+                : sound1.setNumberOfLoops(-1);
               this.state.useSoundR1 ? soundR1.play() : sound1.play();
             }
           } else if (this.state.zone == 2) {
@@ -502,7 +502,9 @@ class PrototypeContainer extends Component {
                 //sound2.play();
               }
             } else if (this.state.bucle == 1) {
-              his.state.useSoundR2 ? soundR2.setNumberOfLoops(-1) : sound2.setNumberOfLoops(-1);
+              his.state.useSoundR2
+                ? soundR2.setNumberOfLoops(-1)
+                : sound2.setNumberOfLoops(-1);
               this.state.useSoundR2 ? soundR2.play() : sound2.play();
               //sound2.setNumberOfLoops(-1);
               //sound2.play();
@@ -719,8 +721,6 @@ class PrototypeContainer extends Component {
 
     return (
       <Container>
-        
-
         <Content contentContainerStyle={{}}>
           <Header>
             <Body>
@@ -734,9 +734,9 @@ class PrototypeContainer extends Component {
             }}
             tabBarUnderlineStyle={{ opacity: 0 }}
             tabBarPosition={"bottom"}
-            style={{flex: 1}}
+            style={{ flex: 1 }}
           >
-            <Tab heading={<TabHeading />} style={{padding: 10}}>
+            <Tab heading={<TabHeading />} style={{ padding: 10 }}>
               <View style={styles.container}>
                 <Button
                   onPress={() => {
@@ -906,33 +906,6 @@ class PrototypeContainer extends Component {
                   </View>
                 </View>
               </View>
-              {/*
-                  <Text style={styles.progressText}>
-                    {this.state.currentTime}s
-                  </Text>
-               
-              <Button
-                onPress={() => {
-                  this._record();
-                }}
-              >
-                <Text>Record</Text>
-              </Button>
-              <Text>
-                {acceleration.x +
-                  "/" +
-                  acceleration.y +
-                  "/" +
-                  acceleration.z +
-                  "  cont = " +
-                  cont}
-              </Text>
-              <Text>{"  sonido  = " + this.state.sonido}</Text>
-              <Text>{"  bucle  = " + this.state.bucle}</Text>
-					*/}
-
-              {/* <Text> Degrees: {this.state.currentDegree} </Text>
-			  <Text> Zone: {this.state.zone} </Text> */}
 
               <View
                 style={{
@@ -1024,7 +997,7 @@ class PrototypeContainer extends Component {
                 </Grid>
               </View>
             </Tab>
-            <Tab heading={<TabHeading />} style={{padding: 10}}>
+            <Tab heading={<TabHeading />} style={{ padding: 10 }}>
               <View style={styles.container}>
                 <Button
                   onPress={() => {
@@ -1194,33 +1167,6 @@ class PrototypeContainer extends Component {
                   </View>
                 </View>
               </View>
-              {/*
-                  <Text style={styles.progressText}>
-                    {this.state.currentTime}s
-                  </Text>
-               
-              <Button
-                onPress={() => {
-                  this._record();
-                }}
-              >
-                <Text>Record</Text>
-              </Button>
-              <Text>
-                {acceleration.x +
-                  "/" +
-                  acceleration.y +
-                  "/" +
-                  acceleration.z +
-                  "  cont = " +
-                  cont}
-              </Text>
-              <Text>{"  sonido  = " + this.state.sonido}</Text>
-              <Text>{"  bucle  = " + this.state.bucle}</Text>
-					*/}
-
-              {/* <Text> Degrees: {this.state.currentDegree} </Text>
-			  <Text> Zone: {this.state.zone} </Text> */}
 
               <View
                 style={{
@@ -1311,451 +1257,6 @@ class PrototypeContainer extends Component {
                   </Col>
                 </Grid>
               </View>
-            </Tab>
-            <Tab heading={<TabHeading />} style={{padding: 10}}>
-              <View style={styles.container}>
-                <Button
-                  onPress={() => {
-                    this.state.out = 1;
-                    Actions.pop();
-                  }}
-                >
-                  <Icon name="arrow-back" />
-                  <Text>Back</Text>
-                </Button>
-                <View style={styles.controls}>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        padding: 0
-                      }}
-                    >
-                      <View
-                        style={[
-                          styles.circle,
-                          {
-                            backgroundColor: "green",
-                            borderTopLeftRadius: circleSize,
-                            opacity:
-                              this.state.cuadricula == 2 && this.state.zone == 1
-                                ? 1
-                                : 0.3
-                          }
-                        ]}
-                      />
-                      <View
-                        style={[
-                          styles.circle,
-                          {
-                            backgroundColor: "red",
-                            borderTopRightRadius: circleSize,
-                            opacity:
-                              this.state.cuadricula == 2 && this.state.zone == 2
-                                ? 1
-                                : 0.3
-                          }
-                        ]}
-                      />
-                    </View>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        padding: 0
-                      }}
-                    >
-                      <View
-                        style={[
-                          styles.circle,
-                          {
-                            backgroundColor: "blue",
-                            borderBottomLeftRadius: circleSize,
-                            opacity:
-                              this.state.cuadricula == 2 && this.state.zone == 4
-                                ? 1
-                                : 0.3
-                          }
-                        ]}
-                      />
-                      <View
-                        style={[
-                          styles.circle,
-                          {
-                            backgroundColor: "yellow",
-                            borderBottomRightRadius: circleSize,
-                            opacity:
-                              this.state.cuadricula == 2 && this.state.zone == 3
-                                ? 1
-                                : 0.3
-                          }
-                        ]}
-                      />
-                    </View>
-                  </View>
-
-                  <View style={{ marginTop: 20 }}>
-                    <Grid
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton(
-                            "RECORD",
-                            () => {
-                              this._record();
-                            },
-                            this.state.recording
-                          )}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderButton("PLAY", () => {
-                            this._play();
-                          })}
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton("STOP", () => {
-                            this._stop();
-                          })}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderButton("USE R1", () => {
-                            this._useR1();
-                          })}
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton("USE R2", () => {
-                            this._useR2();
-                          })}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderPauseButton(() => {
-                            this.state.paused ? this._resume() : this._pause();
-                          })}
-                        </Row>
-                      </Col>
-                    </Grid>
-                  </View>
-                </View>
-              </View>
-              {/*
-                  <Text style={styles.progressText}>
-                    {this.state.currentTime}s
-                  </Text>
-               
-              <Button
-                onPress={() => {
-                  this._record();
-                }}
-              >
-                <Text>Record</Text>
-              </Button>
-              <Text>
-                {acceleration.x +
-                  "/" +
-                  acceleration.y +
-                  "/" +
-                  acceleration.z +
-                  "  cont = " +
-                  cont}
-              </Text>
-              <Text>{"  sonido  = " + this.state.sonido}</Text>
-              <Text>{"  bucle  = " + this.state.bucle}</Text>
-					*/}
-
-              {/* <Text> Degrees: {this.state.currentDegree} </Text>
-			  <Text> Zone: {this.state.zone} </Text> */}
-
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 20
-                }}
-              >
-                <Grid
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Col
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Row
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Button
-                        onPress={() => {
-                          sound2.setVolume(0.3);
-                          sound2.play();
-                        }}
-                      >
-                        <Icon name="barcode" />
-                        <Text>sound 1</Text>
-                      </Button>
-                    </Row>
-                    <Row
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginTop: 20
-                      }}
-                    >
-                      <Button
-                        onPress={() => {
-                          soundR1.setVolume(0.3);
-                          soundR1.play();
-                        }}
-                      >
-                        <Icon name="barcode" />
-                        <Text>sound R1</Text>
-                      </Button>
-                    </Row>
-                  </Col>
-                  <Col>
-                    <Row
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Button
-                        onPress={() => {
-                          soundR2.setVolume(0.3);
-                          soundR2.play();
-                        }}
-                      >
-                        <Icon name="barcode" />
-                        <Text>sound R2</Text>
-                      </Button>
-                    </Row>
-                    <Row
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginTop: 20
-                      }}
-                    >
-                      <Button
-                        onPress={() => {
-                          sound2.play();
-                        }}
-                      >
-                        <Icon name="barcode" />
-                        <Text>sound 2</Text>
-                      </Button>
-                    </Row>
-                  </Col>
-                </Grid>
-              </View>
-            </Tab>
-            <Tab heading={<TabHeading />} style={{padding: 10}}>
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 0
-                  }}
-                >
-                  <View
-                    style={[
-                      styles.circle,
-                      {
-                        backgroundColor: "green",
-                        borderTopLeftRadius: circleSize,
-                        opacity:
-                          this.state.cuadricula == 3 && this.state.zone == 1
-                            ? 1
-                            : 0.3
-                      }
-                    ]}
-                  />
-                  <View
-                    style={[
-                      styles.circle,
-                      {
-                        backgroundColor: "red",
-                        borderTopRightRadius: circleSize,
-                        opacity:
-                          this.state.cuadricula == 3 && this.state.zone == 2
-                            ? 1
-                            : 0.3
-                      }
-                    ]}
-                  />
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    padding: 0
-                  }}
-                >
-                  <View
-                    style={[
-                      styles.circle,
-                      {
-                        backgroundColor: "blue",
-                        borderBottomLeftRadius: circleSize,
-                        opacity:
-                          this.state.cuadricula == 3 && this.state.zone == 4
-                            ? 1
-                            : 0.3
-                      }
-                    ]}
-                  />
-                  <View
-                    style={[
-                      styles.circle,
-                      {
-                        backgroundColor: "yellow",
-                        borderBottomRightRadius: circleSize,
-                        opacity:
-                          this.state.cuadricula == 3 && this.state.zone == 3
-                            ? 1
-                            : 0.3
-                      }
-                    ]}
-                  />
-                </View>
-              </View>
-              <View style={{ marginTop: 20 }}>
-                    <Grid
-                      style={{
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    >
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton(
-                            "RECORD",
-                            () => {
-                              this._record();
-                            },
-                            this.state.recording
-                          )}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderButton("PLAY", () => {
-                            this._play();
-                          })}
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton("STOP", () => {
-                            this._stop();
-                          })}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderButton("USE R1", () => {
-                            this._useR1();
-                          })}
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center"
-                          }}
-                        >
-                          {this._renderButton("USE R2", () => {
-                            this._useR2();
-                          })}
-                        </Row>
-                        <Row
-                          style={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: 20
-                          }}
-                        >
-                          {this._renderPauseButton(() => {
-                            this.state.paused ? this._resume() : this._pause();
-                          })}
-                        </Row>
-                      </Col>
-                    </Grid>
-                  </View>
             </Tab>
           </Tabs>
         </Content>
@@ -1778,24 +1279,6 @@ class PrototypeContainer extends Component {
               }}
             >
               <Text>Two</Text>
-            </Button>
-            <Button
-              active={this.state.cuadricula == 2}
-              onPress={() => {
-                this.tabView.goToPage(2);
-                this.setState({ cuadricula: 2 });
-              }}
-            >
-              <Text>Three</Text>
-            </Button>
-            <Button
-              active={this.state.cuadricula == 3}
-              onPress={() => {
-                this.tabView.goToPage(3);
-                this.setState({ cuadricula: 3 });
-              }}
-            >
-              <Text>Four</Text>
             </Button>
           </FooterTab>
         </Footer>
