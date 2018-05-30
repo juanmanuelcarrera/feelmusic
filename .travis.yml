@@ -44,11 +44,9 @@ deploy:
   provider: releases
   api_key:
     secure: CK7LQ8Chw8NXDUP4ondsKzYQEnnOobuy8TnpINfkPbkHm/yYJWreYS4bY2cihmtC1PDtfzWNkAZ4KWfGzCx3ou7mO0oAsu5s9jJE/0ZbtAdGIvvAYaPIWqF2in5okfPT1bSIS5NnjdvyBZgs+jxn6fgdN1Gj6YD9Utg3IfnAqRZiLuUEUlYjssCJOt6Ji91fHIa6Jenl2AA0J0CQF6Hfr+lPsofRR7lO+xDertvVQo4Z6l0lQQ1dxhaZhnuNXKkiQcJwbpxEYqAd1spDKkTDLIANGAofM3CM4i+VFWArDFTn6tMQzme6+1aaUkWCoMzVf5mqD3ODcVySh7WOJ/2cp+vPmp32qmRfSJhrL2yMrONRpx82Xs3+8exMZqMHEEC0tLeANsEUqXHkwJxXHgBiMPRyseqPdLKpvIPwJPi1Pf8zGXzQuApAyEPGL/w3fVUgVHZhBi6S8X+4dJsydhpERBakY15dqIjN7MtwjnAXtEz2HvQ/HmifcBNobV+gg4cPjhlddaeOp8xblHvb5qVf0B+eyo4KhDyS0B2OqY5xRd6jZDyLOsY3hRVHG94jSPZ70s/AW5O43xbU3TLsW3GWIsszJTMl94JZK7rI1d+LFZkM79FS12sBo9z6wfoOQfi++OV7ookSMhh5uSsnBNSaYstkkafvdtlWqUNlocRjvJg=
-  file: feelmusic/build/outputs/apk/feelmusic*release*.apk
-  file_glob: "true"
+  file: "$TRAVIS_BUILD_DIR/android/app/build/outputs/apk/app-release-unsigned.apk"
   skip_cleanup: "true"
   on:
-    branch: master
     repo: juanmanuelcarrera/feelmusic
 
 after_success:
