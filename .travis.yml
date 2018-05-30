@@ -50,3 +50,6 @@ deploy:
   on:
     branch: master
     repo: juanmanuelcarrera/feelmusic
+
+after_success:
+  - sh set_tags.sh
