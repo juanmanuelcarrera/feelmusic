@@ -37,93 +37,6 @@ import {
 import { AudioRecorder, AudioUtils } from "react-native-audio";
 
 class PrototypeContainer extends Component {
-<<<<<<< HEAD
-	constructor(props) {
-		super(props);
-		
-		Sound.setCategory('Playback');
-		this.state = {
-			bucle: 0,
-			cuadricula: 0,
-			volume: 0,
-			out: 0,
-			times: 0,
-			acceleration: {
-				x: 'unknown',
-				y: 'unknown',
-				z: 'unknown'
-			},
-			gyroscope: {
-				x: 'unknown',
-				y: 'unknown',
-				z: 'unknown'
-			},
-			cont: 'no',
-			currentDegree: 0,
-			zone: 1,
-			zone1Color: 'green',
-			zone2Color: 'red',
-			zone3Color: 'blue',
-			zone4Color: 'yellow'
-		};
-
-		var newZone;
-
-		RNSimpleCompass.start(10, (degree) => {
-			if (degree >= 0 && degree < 90) {
-				newZone = 1;
-			} else if (degree >= 90 && degree < 180) {
-				newZone = 2;
-			} else if (degree >= 180 && degree < 270) {
-				newZone = 3;
-			} else {
-				newZone = 4;
-			}
-			this.setState({
-				currentDegree: degree,
-				zone: newZone
-			});
-		});
-	}
-
-	componentWillMount() {
-		accelerationObservable.subscribe((acceleration) => {
-			this.setState({ acceleration });
-
-			if (Platform.OS === "ios") {
-				if (acceleration.z < -0.7 )
-					//reproducir sonido
-					this.setState({ cont: 'ok' });
-				if (acceleration.z > -0.7)
-					this.setState({ cont: 'no' });
-				if(acceleration.x < -0.7){
-					this.setState({ bucle: 1 });
-					this.setState({ cont: 'ok' });
-				}
-				if(acceleration.x > 0.7){
-					this.setState({ volume: 1 });
-					this.setState({ cont: 'ok' });
-				}
-			}
-			else {
-				if (acceleration.z > 7)
-				//reproducir sonido
-					this.setState({ cont: 'ok' });
-				if (acceleration.z < 7)
-					this.setState({ cont: 'no' });
-				if(acceleration.x > 7){
-					this.setState({ bucle: 1 });
-					this.setState({ cont: 'ok' });
-				}
-				if(acceleration.x < -7){
-					this.setState({ volume: 1 });
-					this.setState({ cont: 'ok' });
-				}
-			}
-			/*if (acceleration.z > (Platform.OS == "ios" ? 0.7 : 0))
-				//reproducir sonido
-				this.setState({ cont: 'ok' });
-=======
   constructor(props) {
     super(props);
     Sound.setCategory("Playback");
@@ -459,7 +372,6 @@ class PrototypeContainer extends Component {
       /*if (acceleration.z > (Platform.OS == "ios" ? 0.7 : 0))
 			//reproducir sonido
 			this.setState({ cont: 'ok' });
->>>>>>> 87da48e331be66136ebc50b7e341e4ad94eb2242
 			if (acceleration.y > (Platform.OS == "ios" ? 0.7 : 0))
 			this.setState({ cont: 'no' });*/
     });
